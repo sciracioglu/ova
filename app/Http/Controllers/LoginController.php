@@ -61,7 +61,7 @@ class LoginController extends Controller
 
         foreach ($kullanicilar as $k) {
             if ($k->SAYI == 1) {
-                session()->put('kullanici.username', Input::get('kullanici'));
+                session()->put('kullanici.username', $request->get('kullanici'));
 
                 return Redirect::to('/');
             }
