@@ -6,55 +6,55 @@
 
 @section('content')
 <div id='app'>
-    <div class="accordion" id="tahsilat_yil">
-        <div class="card" :id="yil.yil"  v-for='yil in yillar'>
-            <div class="card-header">
-                <h4 class="panel-title">
-                   <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#yil'+yil.yil" @click='ac(yil)' aria-expanded="true" :aria-controls="'yil'+yil.yil">
-                        <div class="row">
-                            <div class="col-md-4"> @{{ yil.yil }}</div>
-                            <div class="col-md-4" style="text-align:right;">
-                                <span v-text='format(yil.evrak_tutar,"Evrak Tutar")'></span>
-                            </div>
-                            <div class="col-md-4" style="text-align:right;">
-                                <span v-text='format(yil.tutar,"Tutar")'></span>
-                            </div>
-                        </div>
-                    </a>
-                 </h4>
-                <div :id="'#yil'+yil.yil" class="collapse " :class="[isYear(yil.yil) ? 'show' : '']" aria-labelledby="headingOne" data-parent="#tahsilat_yil">
-                    <div class="card-body">
-
-                        <div class="accordion" id="tahsilat_ay">
-                            <div class="card" :id="yil.yil+ay.ay"  v-for='ay in aylar'>
-                                <div class="card-header">
-                                    <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#ay'+yil.yil+ay.ay" aria-expanded="false" :aria-controls="'ay'+yil.yil+ay.ay">
-                                            <div class="row">
-                                                <div class="col-md-4"> @{{ ay.ay }}</div>
-                                                <div class="col-md-4" style="text-align:right;">
-                                                    <span v-text='format(ay.evrak_tutar,"Evrak Tutar")'></span>
-                                                </div>
-                                                <div class="col-md-4" style="text-align:right;">
-                                                    <span v-text='format(ay.tutar,"Tutar")'></span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </h4>
-                                    <div id="'#ay'+yil.yil+ay.ay" class="collapse" aria-labelledby="headingOne" data-parent="#tahsilat_ay">
-                                        <div class="card-body">
-                                                detay
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    </div>
-                </div>
+    <div class="list-group">
+        <a href='#ay' @click='yil = yil.yil' class="list-group-item list-group-item-action active" v-if='yil in yillar'>
+            <div class="row">
+                <div class="col-md-4">@{{ yil.yil }}</div>
+                <div class="col-md-4" v-text='format(yil.evrak_tutar,"Evrak Tutar : ")'></div>
+                <div class="col-md-4" v-text='format(yil.tutar,"Tutar : ")'></div>
             </div>
-        </div>
+            <div class="list-group" v-if='yil == yil.yil' id='ay'>
+                <a href='#detay' @click='ay = ay.ay' class="list-group-item list-group-item-action active" v-if='ay in aylar'>
+                    <div class="row">
+                        <div class="col-md-4">@{{ ay.ay }}</div>
+                        <div class="col-md-4" v-text='format(ay.evrak_tutar,"Evrak Tutar : ")'></div>
+                        <div class="col-md-4" v-text='format(ay.tutar,"Tutar : ")'></div>
+                    </div>
+                    <div class="list-group" id='detay'>
+                        <table class="table table-condenced table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Evrak Tipi</th>
+                                    <th>Evrak Tarihi</th>
+                                    <th>Hesap Kodu</th>
+                                    <th>Ünvanı</th>
+                                    <th>Karşı Hesap Kodu</th>
+                                    <th>Karşı Hesap Kart Ünvan</th>
+                                    <th>Evrak Tutar</th>
+                                    <th>Evrak Döviz Cinsi</th>
+                                    <th>Evrak Döviz Kuru</th>
+                                    <th>Tutar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-if='tahsilat._EVRAKYIL == yil && tahsilat._EVRAKAY == ay' v-for='tahsilat in tahsilatlar'>
+                                    <td>@{{ tahsilat.EVRAKTIP }}</td>
+                                    <td>@{{ tahsilat.EVRAKTARIH }}</td>
+                                    <td>@{{ tahsilat.HESAPKOD }}</td>
+                                    <td>@{{ tahsilat.CARKRT_UNVAN }}</td>
+                                    <td>@{{ tahsilat.KARSIHESAPKOD }}</td>
+                                    <td>@{{ tahsilat.CRKKRS_UNVAN }}</td>
+                                    <td>@{{ tahsilat.EVRAKTUTAR }}</td>
+                                    <td>@{{ tahsilat.EVRAKDOVIZCINS }}</td>
+                                    <td>@{{ tahsilat.EVRAKDOVIZKUR }}</td>
+                                    <td>@{{ tahsilat.TUTAR }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </a>
+            </>
+        </a>
     </div>
 </div>
 @endsection
