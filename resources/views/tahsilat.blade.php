@@ -10,7 +10,7 @@
         <div class="card" :id="yil.yil"  v-for='yil in yillar'>
             <div class="card-header">
                 <h4 class="panel-title">
-                   <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#yil'+yil.yil" @click='yil = yil.yil' aria-expanded="true" :aria-controls="'yil'+yil.yil">
+                   <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#yil'+yil.yil" @click='ac(yil)' aria-expanded="true" :aria-controls="'yil'+yil.yil">
                         <div class="row">
                             <div class="col-md-4"> @{{ yil.yil }}</div>
                             <div class="col-md-4" style="text-align:right;">
@@ -96,7 +96,10 @@ var vue = new Vue({
     methods:{
         format(rakam,title){
                 return  title + ' ' + numeral(rakam) . format('0,0.00');
-            },
+        },
+        ac(yil){
+            this.yil = yil;
+        }
     }
 });
 </script>
