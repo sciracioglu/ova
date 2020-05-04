@@ -21,7 +21,7 @@
                     <td style="text-align: right;" v-text='format(yil.evrak_tutar)'></td>
                     <td style="text-align: right;" v-text='format(yil.tutar)'></td>
                 </tr>
-                <div v-if='yil && ay.yil === yil' v-for='ay in aylar'>
+                <div v-if='yil != 0 && ay.yil === yil' v-for='ay in aylar'>
                     <tr style="cursor:pointer;" @click='ay=ay.ay'>
                         <td >@{{ ay.ay }}</td>
                         <td style="text-align: right;" v-text='format(ay.evrak_tutar)'></td>
@@ -35,7 +35,7 @@
 @endsection
 @section('scripts')
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 var vue = new Vue({
     el:'#app',
