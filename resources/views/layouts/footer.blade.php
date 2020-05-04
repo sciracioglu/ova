@@ -1,6 +1,6 @@
 <!-- FOOTER -->
 <footer class="footer" style='background-color:#ECECEC; color:grey;'>
-    <img src="/assets/img/aragonit.png" width="100" />&copy; {{ date('Y') }} 
+    <img src="/assets/img/aragonit.png" width="100" />&copy; {{ date('Y') }}
 </footer>
 <!-- END FOOTER -->
 
@@ -26,6 +26,7 @@
 </div>
 <!-- Javascript -->
 <script type="text/javascript" src="/js/app.js"></script>
+<script type="text/javascript" src="/assets/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/assets/js/modernizr.js"></script>
 <script type="text/javascript" src="/assets/js/bootstrap-tour.custom.js"></script>
