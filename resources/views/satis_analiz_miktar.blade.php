@@ -95,19 +95,19 @@
                                 @endforeach
                                     <tr>
                                         <th colspan="2" style="font-size: 10px;">Toplamlar</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->OCAK_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->SUBAT_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->MART_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->NISAN_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->MAYIS_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->HAZIRAN_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->TEMMUZ_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->AGUSTOS_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->EYLUL_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->EKIM_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->KASIM_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->ARALIK_MIKTAR,0,',','.') }}</th>
-                                        <th style="text-align: right;font-size: 10px;">{{ number_format($detay->TOPLAM_MIKTAR,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($OCAK,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($SUBAT,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($MART,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($NISAN,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($MAYIS,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($HAZIRAN,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($TEMMUZ,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($AGUSTOS,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($EYLUL,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($EKIM,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($KASIM,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($ARALIK,0,',','.') }}</th>
+                                        <th style="text-align: right;font-size: 10px;">{{ number_format($TOPLAM,0,',','.') }}</th>
                                     </tr>
                                 </tbody>
                             </table>
