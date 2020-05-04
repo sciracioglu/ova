@@ -22,7 +22,7 @@
                         </div>
                     </a>
                  </h4>
-                <div :id="'#yil'+yil.yil" class="collapse" :class='[yil == yil.yil ? "show" : ""]' aria-labelledby="headingOne" data-parent="#tahsilat_yil">
+                <div :id="'#yil'+yil.yil" class="collapse " :class='[yil == yil.yil ? "show" : ""]' aria-labelledby="headingOne" data-parent="#tahsilat_yil">
                     <div class="card-body">
 
                         <div class="accordion" id="tahsilat_ay">
@@ -45,36 +45,14 @@
                                         <div class="card-body">
                                                 detay
                                         </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
                     </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div v-for='yil in yillar' class="row">
-        <div class="col-md-2" >
-            <span v-text='yil.yil'></span>
-        </div>
-        <div class="col-md-2" style="text-align:right;">
-            Evrak Tutar : <span  v-text='format(yil.evrak_tutar)'></span>
-        </div>
-        <div class="col-md-2" style="text-align:right;">
-            Tutar : <span v-text='format(yil.tutar)'></span>
-        </div>
-        <div v-if='yil != 0 && ay.yil === yil' v-for='ay in aylar' class="row">
-            <div class="col-md-2" >
-                <span v-text='ay.ay'></span>
-            </div>
-            <div class="col-md-2" style="text-align:right;">
-                Evrak Tutar : <span  v-text='format(ay.evrak_tutar)'></span>
-            </div>
-            <div class="col-md-2" style="text-align:right;">
-                Tutar : <span v-text='format(ay.tutar)'></span>
             </div>
         </div>
     </div>
