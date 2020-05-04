@@ -10,7 +10,7 @@
         <div class="card" :id="yil.yil"  v-for='yil in yillar'>
             <div class="card-header">
                 <h4 class="panel-title">
-                   <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#yil'+yil.yil" aria-expanded="true" :aria-controls="'yil'+yil.yil">
+                   <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#yil'+yil.yil" @click='yil = yil.yil' aria-expanded="true" :aria-controls="'yil'+yil.yil">
                         <div class="row">
                             <div class="col-md-4"> @{{ yil.yil }}</div>
                             <div class="col-md-4" style="text-align:right;">
@@ -22,7 +22,7 @@
                         </div>
                     </a>
                  </h4>
-                <div :id="'#yil'+yil.yil" class="collapse" aria-labelledby="headingOne" data-parent="#tahsilat_yil">
+                <div :id="'#yil'+yil.yil" class="collapse" :class='[yil == yil.yil ? "show" : ""]' aria-labelledby="headingOne" data-parent="#tahsilat_yil">
                     <div class="card-body">
 
                         <div class="accordion" id="tahsilat_ay">
