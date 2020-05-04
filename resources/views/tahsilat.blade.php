@@ -16,9 +16,9 @@
         </thead>
         <tbody>
             <tr style="cursor:pointer;" v-for='yil in yillar'>
-                <td style="text-align: center;">@{{ $yil }}</td>
-                <td style="text-align: right;">@{{ evrak_tutar }}</td>
-                <td style="text-align: right;">@{{ tutar }}</td>
+                <td style="text-align: center;">@{{ yil.yil }}</td>
+                <td style="text-align: right;">@{{ yil.evrak_tutar }}</td>
+                <td style="text-align: right;">@{{ yil.tutar }}</td>
             </tr>
         </tbody>
     </table>
