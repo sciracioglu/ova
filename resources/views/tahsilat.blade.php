@@ -7,14 +7,14 @@
 @section('content')
 <div id='app'>
     <div class="list-group">
-        <a href='#ay' @click='yil = yil.yil' class="list-group-item list-group-item-action " :class="[isYear(yil.yil) ? 'active' :'']" v-if='yil in yillar'>
+        <a href='#ay' @click='yilAta(yil.yil)' class="list-group-item list-group-item-action " :class="[isYear(yil) ? 'active' :'']" v-if='yil in yillar'>
             <div class="row">
                 <div class="col-md-4">@{{ yil.yil }}</div>
                 <div class="col-md-4" v-text='format(yil.evrak_tutar,"Evrak Tutar : ")'></div>
                 <div class="col-md-4" v-text='format(yil.tutar,"Tutar : ")'></div>
             </div>
             <div class="list-group" v-if='yil == yil.yil' id='ay'>
-                <a href='#detay' @click='ay = ay.ay' class="list-group-item list-group-item-action" :class="[isMonth(yil.yil, ay.ay) ? 'active' :'']"  v-if='ay in aylar'>
+                <a href='#detay' @click='ayAta(ay.ay)' class="list-group-item list-group-item-action" :class="[isMonth(ay) ? 'active' :'']"  v-if='ay in aylar'>
                     <div class="row">
                         <div class="col-md-4">@{{ ay.ay }}</div>
                         <div class="col-md-4" v-text='format(ay.evrak_tutar,"Evrak Tutar : ")'></div>
@@ -76,19 +76,22 @@ var vue = new Vue({
                 return  title + ' ' + numeral(rakam) . format('0,0.00');
         },
         isYear(yil){
-            if(this.yil == yil){
+            if(this.yil == yil.yil){
                 return true;
             }
             return false;
         },
         isMonth(yil, ay){
-            if(this.yil == yil && this.ay == ay){
+            if(this.yil == ay.yil && this.ay == ay.ay){
                 return true;
             }
             return false;
         },
-        ac(yil){
-            this.yil = yil.yil;
+        yilAta(yil){
+            this.yil = yil;
+        },
+        ayAta(ay){
+            this.ay = ay;
         }
     }
 });
