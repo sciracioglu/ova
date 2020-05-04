@@ -20,7 +20,6 @@
                 <td style="text-align: right;">@{{ evrak_tutar }}</td>
                 <td style="text-align: right;">@{{ tutar }}</td>
             </tr>
-        @endforeach
         </tbody>
     </table>
 </div>
