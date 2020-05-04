@@ -11,7 +11,7 @@ class TahsilatController extends Controller
         $tahsilatlar = collect(DB::select('EXEC [dbo].[spArgWebTahsilatRapor] ?', [session('musteri.hesapkod')]));
         $evrak_tutar = 0;
         $tutar = 0;
-        $tasilat_kayit = $tahsilatlar->map(function ($tahsilat) use ($evrak_tutar, $tutar) {
+        $tasilat_kayit = collect($tahsilatlar->map(function ($tahsilat) use ($evrak_tutar, $tutar) {
             return [
                 'yil' => $tahsilat->_EVRAKYIL,
                 'ay' => $tahsilat->_EVRAKAY,
@@ -28,7 +28,7 @@ class TahsilatController extends Controller
                 'evrak_tip' => $tahsilat->EVRAKTIP,
                 'aciklama' => $tahsilat->ACIKLAMA1,
             ];
-        });
-        dd($tasilat_kayit);
+        }));
+        dd($tasilat_kayit->groupBy('yil')->sum('evrak_tutar'));
     }
 }
