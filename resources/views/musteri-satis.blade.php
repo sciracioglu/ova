@@ -11,17 +11,17 @@ Müsteri Satış Raporu
             <form class="form-horizontal">
                 <div class="form-group">
                     <label ><strong>Başlangıc Tarihi</strong></label>
-            
+
                     <input class='form-control' type='text' name='baslangic' id='baslangic' />
                 </div>
                 <div class="form-group">
                     <label><strong>Bitis Tarihi</strong></label>
-            
+
                     <input class='form-control' type='text' name='bitis' id='bitis' />
                 </div>
                 <div class="form-group">
                     <label ><strong>Bolge</strong></label>
-            
+
                     <select name='bolge' id='bolge'  class='form-control'>
                             <option v-for='bolge in bolgeler' :value="bolge.KOD">@{{ bolge.ACIKLAMA }}</option>
                     </select>
@@ -34,7 +34,7 @@ Müsteri Satış Raporu
 @endsection
 
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <script>
      $( function() {
             $('#baslangic').datetimepicker({
@@ -51,7 +51,7 @@ var vue = new Vue({
    data:{
       bolgeler:{!! $bolgeler !!},
       raporlar:null,
-      
+
    },
    methods:{
      detay(){
