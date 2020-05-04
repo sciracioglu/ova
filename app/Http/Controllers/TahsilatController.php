@@ -9,6 +9,7 @@ class TahsilatController extends Controller
     public function index()
     {
         $tahsilatlar = collect(DB::select('EXEC [dbo].[spArgWebTahsilatRapor] ?', [session('musteri.hesapkod')]));
+        dd($tahsilatlar);
         $evrak_tutar = 0;
         $tutar = 0;
         $tasilat_kayit = $tahsilatlar->map(function ($tahsilat) use ($evrak_tutar, $tutar) {
