@@ -22,7 +22,7 @@
                         </div>
                     </a>
                  </h4>
-                <div id="'#yil'+yil.yil" class="collapse" aria-labelledby="headingOne" data-parent="#tahsilat_yil">
+                <div :id="'#yil'+yil.yil" class="collapse" aria-labelledby="headingOne" data-parent="#tahsilat_yil">
                     <div class="card-body">
 
                         <div class="accordion" id="tahsilat_ay">
