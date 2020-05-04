@@ -33,10 +33,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
             </a>
           </h4>
         </div>
-        <div :id="'a'+yil.EVRAKYIL" class="panel-collapse collapse" role="tabpanel">
+        <div :id="'a'+yil.yil" class="panel-collapse collapse" role="tabpanel">
           <div class="panel-body">
             <div class="panel-group" :id="'ay'+yil.yil" role="tablist" aria-multiselectable="true">
-
                <div class="panel panel-default" v-for='ay in aylar'  v-if='ay.yil == yil.yil'>
                  <div class="panel-heading temel" role="tab" id="headingOne">
                    <h4 class="panel-title">
@@ -109,8 +108,6 @@ var vue = new Vue({
       tahsilatlar:{!! $tahsilatlar !!},
       yillar:{!! $yillar !!},
       aylar:{!! $aylar !!},
-      yil:null,
-      ay:null,
    },
    methods:{
       url(id){
