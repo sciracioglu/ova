@@ -20,6 +20,8 @@ Route::group(['middleware' => 'login'], function () {
     Route::get('siparis/duzenle/{id}', 'MusteriController@siparisDuzenle');
     Route::get('siparis/opsiyon', 'MusteriController@opsiyon');
 
+    Route::get('tahsilat', 'TahsilatController@index');
+
     Route::delete('siparis/kalem/{id}', ['as' => 'siparis.kalem.destroy', 'uses' => 'MusteriController@kalemSil']);
 
     Route::get('siparis/liste', 'MusteriController@siparisListe');

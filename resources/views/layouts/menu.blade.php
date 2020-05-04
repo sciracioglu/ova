@@ -20,6 +20,7 @@
             <li class="active"><a href="/havale/create"><i class="fa fa-bank fa-fw"></i><span class="text">Gelen Havale-KK Tahsilat</span></a></li>
             <li class="active"><a href="/prim"><i class="fa fa-bank fa-fw"></i><span class="text">Prim ve İadeler</span></a></li>
             <li class="active"><a href="/musteri-satis"><i class="fa fa-handshake-o fa-fw"></i><span class="text">Müşteri Satış Raporu</span></a></li>
+            <li class="active"><a href="/tahsilat"><i class="fa fa-money-bill-alt fa-fw"></i><span class="text">Tahsilat Raporu</span></a></li>
             <!--  <li class="active"><a href="/siparislerim"><i class="fa fa-magic fa-fw"></i><span class="text">Açık Siparişler</span></a></li> -->
             <li class="active"><a href="/logout"><i class="fa fa-sign-out fa-fw"></i><span class="text">Çıkış</span></a></li>
         </ul>
