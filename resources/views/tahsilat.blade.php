@@ -77,10 +77,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
                                     <td>@{{ tahsilat.CARKRT_UNVAN }}</td>
                                     <td>@{{ tahsilat.KARSIHESAPKOD }}</td>
                                     <td>@{{ tahsilat.CRKKRS_UNVAN }}</td>
-                                    <td>@{{ tahsilat.EVRAKTUTAR }}</td>
+                                    <td v-text="format(tahsilat.EVRAKTUTAR)"></td>
                                     <td>@{{ tahsilat.EVRAKDOVIZCINS }}</td>
-                                    <td>@{{ tahsilat.EVRAKDOVIZKUR }}</td>
-                                    <td>@{{ tahsilat.TUTAR }}</td>
+                                    <td v-text="format(tahsilat.EVRAKDOVIZKUR)">@{{ tahsilat.EVRAKDOVIZKUR }}</td>
+                                    <td v-text="format(tahsilat.TUTAR)">@{{ tahsilat.TUTAR }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -114,8 +114,12 @@ var vue = new Vue({
       url(id){
          return '#a'+id;
       },
-      format(fiyat,msg){
-           return msg+": "+ numeral(fiyat).format('0,0.00');
+      format(fiyat,msg=null){
+          if(msg){
+              return msg+": "+ numeral(fiyat).format('0,0.00');
+          }
+          return numeral(fiyat) . format('0,0.00');
+
       },
    }
 })
