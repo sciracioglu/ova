@@ -40,8 +40,8 @@
 var vue = new Vue({
     el:'#app',
     data:{
-        yil:null,
-        ay:null,
+        yil:0,
+        ay:0,
         yillar:{!! $yillar !!},
         aylar:{!! $aylar !!},
         tahsilatlar:{!! $tahsilatlar !!},
