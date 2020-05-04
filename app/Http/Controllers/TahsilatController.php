@@ -13,11 +13,11 @@ class TahsilatController extends Controller
         $tutar = 0;
         $tasilat_yil = $tahsilatlar->groupBy('EVRAKYIL')
                                 ->each(function ($tahsilat) use ($evrak_tutar,$tutar) {
-                                    $evrak_tutar += $tahsilat->EVRAKTUTAR;
-                                    $tutar += $tahsilat->TUTAR;
+                                    $evrak_tutar += $tahsilat['EVRAKTUTAR'];
+                                    $tutar += $tahsilat['TUTAR'];
                                 })
                                 ->map(function ($tahsilat) use ($evrak_tutar, $tutar) {
-                                    return ['yil' => $tahsilat->_EVRAKYIL,
+                                    return ['yil' => $tahsilat['_EVRAKYIL'],
                                         'evrak_tutar' => $evrak_tutar,
                                         'tutar' => $tutar];
                                 });
