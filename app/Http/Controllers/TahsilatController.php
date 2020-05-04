@@ -11,7 +11,7 @@ class TahsilatController extends Controller
     {
         $tahsilatlar = Tahsilat::where('HESAPKOD', [session('musteri.hesapkod')])
                             ->groupBy('_EVRAKYIL')
-                            ->get(DB::raw('sum(EVRAKTUTAR) as evrak_tutuar, sum(TUTAR) as tutar'));
+                            ->get(DB::raw('_EVRAKYIL as yil, sum(EVRAKTUTAR) as evrak_tutuar, sum(TUTAR) as tutar'));
         dd($tahsilatlar);
         $tasilat_kayit = collect($tahsilatlar->map(function ($tahsilat) {
             return [
