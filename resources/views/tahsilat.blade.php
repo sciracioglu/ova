@@ -16,13 +16,13 @@
             <div class="row" v-if='yil == yil.yil' id='ay'>
                 <div class="col-md-12">
                     <div class="list-group">
-                        <a href='#detay' @click='ayAta(ay.ay)' class="list-group-item list-group-item-action" :class="[isMonth(ay) ? 'active' :'']"  v-for='ay in aylar'>
+                        <a href='#detay' @click='ayAta(ay.ay)' class="list-group-item list-group-item-action" :class="[isMonth(ay) ? 'active' :'']" v-if='yil == ay.yil'  v-for='ay in aylar'>
                             <div class="row">
                                 <div class="col-md-4">@{{ ay.ay }}</div>
                                 <div class="col-md-4" v-text='format(ay.evrak_tutar,"Evrak Tutar : ")'></div>
                                 <div class="col-md-4" v-text='format(ay.tutar,"Tutar : ")'></div>
                             </div>
-                            <div class="list-group" id='detay'>
+                            <div class="list-group" id='detay' v-if='yil == ay.yil && ay == ay.ay'>
                                 <table class="table table-condenced table-hover">
                                     <thead>
                                         <tr>
