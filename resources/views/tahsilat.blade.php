@@ -29,7 +29,7 @@
 <script>
 var vue = new Vue({
     el:'#app',
-    body:{
+    data:{
         yillar:{!! $yillar !!},
         aylar:{!! $aylar !!},
         tahsilatlar:{!! $tahsilatlar !!},
