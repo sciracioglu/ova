@@ -10,7 +10,7 @@ class TahsilatController extends Controller
     {
         $tahsilatlar = collect(DB::select('EXEC [dbo].[spArgWebTahsilatRapor] ?', [session('musteri.hesapkod')]));
 
-        $tasilat_kayit = collect($tahsilatlar->map(function ($tahsilat) use ($evrak_tutar, $tutar) {
+        $tasilat_kayit = collect($tahsilatlar->map(function ($tahsilat) {
             return [
                 'yil' => $tahsilat->_EVRAKYIL,
                 'ay' => $tahsilat->_EVRAKAY,
