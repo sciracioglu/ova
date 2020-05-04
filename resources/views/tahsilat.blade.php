@@ -100,7 +100,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
 @endsection
 
 @section('scripts')
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <script>
 var vue = new Vue({
    el:'#app',
@@ -113,11 +114,8 @@ var vue = new Vue({
       url(id){
          return '#a'+id;
       },
-      format(fiyat,msg,ust=0){
-         if(ust ==1){
-            return msg+": "+ parseFloat(fiyat).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-         }
-         return parseFloat(fiyat).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+      format(fiyat,msg){
+           return msg+": "+ numeral(fiyat).format('0,0.00');
       },
    }
 })
