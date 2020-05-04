@@ -29,7 +29,7 @@
                             <div class="card" :id="yil.yil+ay.ay"  v-for='ay in aylar'>
                                 <div class="card-header">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#'+yil.yil+ay.ay" aria-expanded="false" :aria-controls="'collapse'yil.yil">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#'+yil.yil+ay.ay" aria-expanded="false" :aria-controls="'collapse'+yil.yil">
                                             <div class="row">
                                                 <div class="col-md-4"> @{{ ay.ay }}</div>
                                                 <div class="col-md-4" style="text-align:right;">
