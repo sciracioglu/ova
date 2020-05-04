@@ -109,7 +109,6 @@ var vue = new Vue({
       tahsilatlar:{!! $tahsilatlar !!},
       yillar:{!! $yillar !!},
       aylar:{!! $aylar !!},
-      tipler:{!! $tipler !!},
       yil:null,
       ay:null,
    },
