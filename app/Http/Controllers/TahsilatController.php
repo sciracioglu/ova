@@ -9,10 +9,13 @@ class TahsilatController extends Controller
 {
     public function index()
     {
-        $tahsilatlar = Tahsilat::where('HESAPKOD', [session('musteri.hesapkod')])
+        $yillar = Tahsilat::where('HESAPKOD', [session('musteri.hesapkod')])
                             ->groupBy('_EVRAKYIL')
                             ->get(DB::raw('_EVRAKYIL as yil, sum(EVRAKTUTAR) as evrak_tutuar, sum(TUTAR) as tutar'));
-        dd($tahsilatlar);
+        $aylar = Tahsilat::where('HESAPKOD', [session('musteri.hesapkod')])
+                            ->groupBy('_EVRAKYIL', '_EVRAKAY')
+                            ->get(DB::raw('_EVRAKYIL as yil, sum(EVRAKTUTAR) as evrak_tutuar, sum(TUTAR) as tutar'));
+        dd($aylar);
         $tasilat_kayit = collect($tahsilatlar->map(function ($tahsilat) {
             return [
                 'yil' => $tahsilat->_EVRAKYIL,
