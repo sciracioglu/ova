@@ -98,7 +98,7 @@ var vue = new Vue({
                 return  title + ' ' + numeral(rakam) . format('0,0.00');
         },
         ac(yil){
-            this.yil = yil;
+            this.yil = yil.yil;
         }
     }
 });
