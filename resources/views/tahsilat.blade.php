@@ -7,14 +7,14 @@
 @section('content')
 <div id='app'>
     <div class="list-group">
-        <a href='#ay' @click='yilAta(yil.yil)' class="list-group-item list-group-item-action " :class="[isYear(yil) ? 'active' :'']" v-if='yil in yillar'>
+        <a href='#ay' @click='yilAta(yil.yil)' class="list-group-item list-group-item-action " :class="[isYear(yil) ? 'active' :'']" v-for='yil in yillar'>
             <div class="row">
                 <div class="col-md-4">@{{ yil.yil }}</div>
                 <div class="col-md-4" v-text='format(yil.evrak_tutar,"Evrak Tutar : ")'></div>
                 <div class="col-md-4" v-text='format(yil.tutar,"Tutar : ")'></div>
             </div>
             <div class="list-group" v-if='yil == yil.yil' id='ay'>
-                <a href='#detay' @click='ayAta(ay.ay)' class="list-group-item list-group-item-action" :class="[isMonth(ay) ? 'active' :'']"  v-if='ay in aylar'>
+                <a href='#detay' @click='ayAta(ay.ay)' class="list-group-item list-group-item-action" :class="[isMonth(ay) ? 'active' :'']"  v-for='ay in aylar'>
                     <div class="row">
                         <div class="col-md-4">@{{ ay.ay }}</div>
                         <div class="col-md-4" v-text='format(ay.evrak_tutar,"Evrak Tutar : ")'></div>
