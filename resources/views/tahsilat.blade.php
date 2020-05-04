@@ -25,6 +25,7 @@
 </div>
 @endsection
 @section('scripts')
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 var vue = new Vue({
     el:'#app',
