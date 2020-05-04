@@ -22,7 +22,7 @@ class TahsilatController extends Controller
                 'unvan' => $tahsilat->CARKRT_UNVAN,
                 'karsi_hesap' => $tahsilat->KARSIHESAPKOD,
                 'karsi_unvan' => $tahsilat->CRKKRS_UNVAN,
-                // 'doviz' => $tahsilat->EVRAKDOVIZCINSI,
+                'doviz' => isset($tahsilat->EVRAKDOVIZCINSI) ? $tahsilat->EVRAKDOVIZCINSI : '',
                 'kur' => $tahsilat->EVRAKDOVIZKUR,
                 'evrak_tip' => $tahsilat->EVRAKTIP,
                 'aciklama' => $tahsilat->ACIKLAMA1,
