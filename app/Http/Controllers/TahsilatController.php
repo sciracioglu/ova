@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Tahsilat;
 use Illuminate\Support\Facades\DB;
 
 class TahsilatController extends Controller
 {
     public function index()
     {
-        $tahsilatlar = collect(DB::select('EXEC [dbo].[spArgWebTahsilatRapor] ?', [session('musteri.hesapkod')]));
-
+        $tahsilatlar = Tahsilat::where('HESAPKOD', [session('musteri.hesapkod')])
+                            ->groupBy('_EVRAKYIL')
+                            ->get(DB::raw('sum(EVRAKTUTAR) as evrak_tutuar, sum(TUTAR) as tutar'));
+        dd($tahsilatlar);
         $tasilat_kayit = collect($tahsilatlar->map(function ($tahsilat) {
             return [
                 'yil' => $tahsilat->_EVRAKYIL,
