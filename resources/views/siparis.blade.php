@@ -9,13 +9,13 @@
     <div class="row">
         <div class="col-md-12">
             {!! Form::open([
-                              'data-remote',
-                              'route'=>"siparis",
-                              'data-validate-form'=>true,
-                              'data-success-message'=> 'Kaydedildi',
-                              'data-failed-message'=> 'Hata',
-                              'data-validation-message' => 'Tum alanlar gerekli',
-                              'data-success-trigger' => "KalemListe()"]) !!}
+                    'data-remote',
+                    'route'=>"siparis",
+                    'data-validate-form'=>true,
+                    'data-success-message'=> 'Kaydedildi',
+                    'data-failed-message'=> 'Hata',
+                    'data-validation-message' => 'Tum alanlar gerekli',
+                    'data-success-trigger' => "KalemListe()"]) !!}
 
             @include('_ust')
              <div class="col-md-12 text-right">
@@ -23,7 +23,7 @@
             </div>
             @include('_form')
 
-           
+
 
             {!! Form::close() !!}
             @include('errors.list')
