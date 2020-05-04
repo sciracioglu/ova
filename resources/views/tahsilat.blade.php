@@ -7,14 +7,14 @@
 @section('content')
 <div id='app'>
     <div class="list-group">
-        <a href='#ay' @click='yil = yil.yil' class="list-group-item list-group-item-action active" v-if='yil in yillar'>
+        <a href='#ay' @click='yil = yil.yil' class="list-group-item list-group-item-action " :class="[isYear(yil.yil) ? 'active' :'']" v-if='yil in yillar'>
             <div class="row">
                 <div class="col-md-4">@{{ yil.yil }}</div>
                 <div class="col-md-4" v-text='format(yil.evrak_tutar,"Evrak Tutar : ")'></div>
                 <div class="col-md-4" v-text='format(yil.tutar,"Tutar : ")'></div>
             </div>
             <div class="list-group" v-if='yil == yil.yil' id='ay'>
-                <a href='#detay' @click='ay = ay.ay' class="list-group-item list-group-item-action active" v-if='ay in aylar'>
+                <a href='#detay' @click='ay = ay.ay' class="list-group-item list-group-item-action" :class="[isMonth(yil.yil, ay.ay) ? 'active' :'']"  v-if='ay in aylar'>
                     <div class="row">
                         <div class="col-md-4">@{{ ay.ay }}</div>
                         <div class="col-md-4" v-text='format(ay.evrak_tutar,"Evrak Tutar : ")'></div>
@@ -65,8 +65,8 @@
 var vue = new Vue({
     el:'#app',
     data:{
-        yil:0,
-        ay:0,
+        yil:'',
+        ay:'',
         yillar:{!! $yillar !!},
         aylar:{!! $aylar !!},
         tahsilatlar:{!! $tahsilatlar !!},
@@ -77,6 +77,12 @@ var vue = new Vue({
         },
         isYear(yil){
             if(this.yil == yil){
+                return true;
+            }
+            return false;
+        },
+        isMonth(yil, ay){
+            if(this.yil == yil && this.ay == ay){
                 return true;
             }
             return false;
