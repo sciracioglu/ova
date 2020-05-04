@@ -10,16 +10,25 @@
         <thead>
             <tr>
                 <th>Evrak Yıl</th>
-                <th>Evrak Tutar</th>
-                <th>Tutar</th>
+                <th style="text-align: right;">Evrak Tutar</th>
+                <th style="text-align: right;">Tutar</th>
             </tr>
         </thead>
         <tbody>
-            <tr style="cursor:pointer;" v-for='yil in yillar'>
-                <td >@{{ yil.yil }}</td>
-                <td style="text-align: right;" v-text='format(yil.evrak_tutar)'></td>
-                <td style="text-align: right;" v-text='format(yil.tutar)'></td>
-            </tr>
+            <div v-for='yil in yillar'>
+                <tr style="cursor:pointer;" @click='yil=yil.yil'>
+                    <td >@{{ yil.yil }}</td>
+                    <td style="text-align: right;" v-text='format(yil.evrak_tutar)'></td>
+                    <td style="text-align: right;" v-text='format(yil.tutar)'></td>
+                </tr>
+                <div v-if='ay.yil === yil' v-for='ay in aylar'>
+                    <tr style="cursor:pointer;" @click='ay=ay.ay'>
+                        <td >@{{ ay.ay }}</td>
+                        <td style="text-align: right;" v-text='format(ay.evrak_tutar)'></td>
+                        <td style="text-align: right;" v-text='format(ay.tutar)'></td>
+                    </tr>
+                </div>
+            </div>
         </tbody>
     </table>
 </div>
@@ -31,6 +40,8 @@
 var vue = new Vue({
     el:'#app',
     data:{
+        yil:null,
+        ay:null,
         yillar:{!! $yillar !!},
         aylar:{!! $aylar !!},
         tahsilatlar:{!! $tahsilatlar !!},
