@@ -28,7 +28,7 @@ class TahsilatController extends Controller
                 'aciklama' => $tahsilat->ACIKLAMA1,
             ];
         }));
-        dump($tasilat_kayit->groupBy('yil'));
+        dump($tasilat_kayit->groupBy('yil')->groupBy('ay'));
         dd($tasilat_kayit->groupBy('yil')->sum('evrak_tutar'));
     }
 }
