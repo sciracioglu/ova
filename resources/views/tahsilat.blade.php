@@ -10,7 +10,7 @@
         <div class="card" :id="yil.yil"  v-for='yil in yillar'>
             <div class="card-header">
                 <h4 class="panel-title">
-                   <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#'+yil.yil" aria-expanded="true" aria-controls="collapseOne">
+                   <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#yil'+yil.yil" aria-expanded="true" aria-controls="'yil'+yil.yil">
                         <div class="row">
                             <div class="col-md-4"> @{{ yil.yil }}</div>
                             <div class="col-md-4" style="text-align:right;">
@@ -22,14 +22,14 @@
                         </div>
                     </a>
                  </h4>
-                <div id="'#'+yil.yil" class="collapse" aria-labelledby="headingOne" data-parent="#tahsilat_yil">
+                <div id="'#yil'+yil.yil" class="collapse" aria-labelledby="headingOne" data-parent="#tahsilat_yil">
                     <div class="card-body">
 
                         <div class="accordion" id="tahsilat_ay">
                             <div class="card" :id="yil.yil+ay.ay"  v-for='ay in aylar'>
                                 <div class="card-header">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#'+yil.yil+ay.ay" aria-expanded="false" :aria-controls="'collapse'+yil.yil">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" :href="'#ay'+yil.yil+ay.ay" aria-expanded="false" :aria-controls="'ay'+yil.yil+ay.ay">
                                             <div class="row">
                                                 <div class="col-md-4"> @{{ ay.ay }}</div>
                                                 <div class="col-md-4" style="text-align:right;">
@@ -41,9 +41,9 @@
                                             </div>
                                         </a>
                                     </h4>
-                                    <div id="'#'+yil.yil+ay.ay" class="collapse show" aria-labelledby="headingOne" data-parent="#tahsilat_ay">
+                                    <div id="'#ay'+yil.yil+ay.ay" class="collapse" aria-labelledby="headingOne" data-parent="#tahsilat_ay">
                                         <div class="card-body">
-
+                                                detay
                                         </div>
                                         </div>
                                     </div>
