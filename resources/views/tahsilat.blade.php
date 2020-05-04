@@ -6,25 +6,28 @@
 
 @section('content')
 <div id='app'>
-    <table class="table table-stripped table-condensed table-hover">
-        <thead>
-            <tr>
-                <th>Evrak Yıl</th>
-                <th style="text-align: right;">Evrak Tutar</th>
-                <th style="text-align: right;">Tutar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <div v-for='yil in yillar'>
-                <tr style="cursor:pointer;" @click='yil=yil.yil'>
-                    <td >@{{ yil.yil }}</td>
-                    <td style="text-align: right;" v-text='format(yil.evrak_tutar)'></td>
-                    <td style="text-align: right;" v-text='format(yil.tutar)'></td>
-                </tr>
-
+    <div v-for='yil in yillar' class="row">
+        <div class="col-md-2" >
+            <span v-text='yil.yil'></span>
+        </div>
+        <div class="col-md-2" style="text-align:right;">
+            Evrak Tutar : <span  v-text='format(yil.evrak_tutar)'></span>
+        </div>
+        <div class="col-md-2" style="text-align:right;">
+            Tutar : <span v-text='format(yil.tutar)'></span>
+        </div>
+        <div v-if='yil != 0 && ay.yil === yil' v-for='ay in aylar' class="row">
+            <div class="col-md-2" >
+                <span v-text='ay.ay'></span>
             </div>
-        </tbody>
-    </table>
+            <div class="col-md-2" style="text-align:right;">
+                Evrak Tutar : <span  v-text='format(ay.evrak_tutar)'></span>
+            </div>
+            <div class="col-md-2" style="text-align:right;">
+                Tutar : <span v-text='format(ay.tutar)'></span>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
 @section('scripts')
