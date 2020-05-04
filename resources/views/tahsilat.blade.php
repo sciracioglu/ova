@@ -22,7 +22,7 @@
                         </div>
                     </a>
                  </h4>
-                <div :id="'#yil'+yil.yil" class="collapse " :class='[yil == yil.yil ? "show" : ""]' aria-labelledby="headingOne" data-parent="#tahsilat_yil">
+                <div :id="'#yil'+yil.yil" class="collapse " :class="[isYear(yil.yil) ? 'show' : '']" aria-labelledby="headingOne" data-parent="#tahsilat_yil">
                     <div class="card-body">
 
                         <div class="accordion" id="tahsilat_ay">
@@ -74,6 +74,12 @@ var vue = new Vue({
     methods:{
         format(rakam,title){
                 return  title + ' ' + numeral(rakam) . format('0,0.00');
+        },
+        isYear(yil){
+            if(this.yil == yil){
+                return true;
+            }
+            return false;
         },
         ac(yil){
             this.yil = yil.yil;
