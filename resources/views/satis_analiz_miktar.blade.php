@@ -47,7 +47,7 @@
                                         $OCAK = 0;
                                         $SUBAT = 0;
                                         $MART = 0;
-                                        $NISAN_ = 0;
+                                        $NISAN = 0;
                                         $MAYIS = 0;
                                         $HAZIRAN = 0;
                                         $TEMMUZ = 0;
@@ -80,7 +80,7 @@
                                         $OCAK += $detay->OCAK_MIKTAR;
                                         $SUBAT += $detay->SUBAT_MIKTAR;
                                         $MART += $detay->MART_MIKTAR;
-                                        $NISAN_ += $detay->NISAN_MIKTAR;
+                                        $NISAN += $detay->NISAN_MIKTAR;
                                         $MAYIS += $detay->MAYIS_MIKTAR;
                                         $HAZIRAN += $detay->HAZIRAN_MIKTAR;
                                         $TEMMUZ += $detay->TEMMUZ_MIKTAR;
