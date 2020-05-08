@@ -22,10 +22,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
           <h4 class="panel-title">
             <a role="button" data-toggle="collapse" :href="'#a'+yil.yil" aria-expanded="true" aria-controls="collapseOne">
                <div class="row">
-                  <div class="col-md-4"> @{{ yil.yil }}</div>
-                  <div class="col-md-4" style="text-align:right;">
-                     <span v-text='format(yil.evrak_tutar,"Evrak Tutar : ")'></span>
-                  </div>
+                  <div class="col-md-8"> @{{ yil.yil }}</div>
                   <div class="col-md-4" style="text-align:right;">
                      <span v-text='format(yil.tutar,"Tutar : ")'></span>
                   </div>
@@ -41,10 +38,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
                    <h4 class="panel-title">
                      <a role="button" data-toggle="collapse" :data-parent="'#ay'+yil.yil" :href="'#b'+yil.yil+ay.ay" aria-expanded="true" aria-controls="collapseOne">
                            <div class="row">
-                                 <div class="col-md-4">  @{{ ay.tam_ay }}</div>
-                                 <div class="col-md-4" style="text-align:right;">
-                                       <span v-text='format(ay.evrak_tutar,"Evrak Tutar : ")'></span>
-                                 </div>
+                                 <div class="col-md-8">  @{{ ay.tam_ay }}</div>
+
                                  <div class="col-md-4" style="text-align:right;">
                                        <span v-text='format(ay.tutar,"Tutar : ")'></span>
                                  </div>
