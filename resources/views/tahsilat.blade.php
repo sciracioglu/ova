@@ -54,10 +54,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
                                 <tr>
                                     <th>Evrak Tipi</th>
                                     <th>Evrak Tarihi</th>
-                                    <th>Hesap Kodu</th>
-                                    <th>Ünvanı</th>
-                                    <th>Karşı Hesap Kodu</th>
-                                    <th>Karşı Hesap Kart Ünvan</th>
+
                                     <th>Evrak Tutar</th>
                                     <th>Evrak Döviz Cinsi</th>
                                     <th>Evrak Döviz Kuru</th>
@@ -68,10 +65,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
                                 <tr  v-for='tahsilat in tahsilatlar'>
                                     <td>@{{ tahsilat.EVRAKTIP }}</td>
                                     <td>@{{ tahsilat.EVRAKTARIH }}</td>
-                                    <td>@{{ tahsilat.HESAPKOD }}</td>
-                                    <td>@{{ tahsilat.CARKRT_UNVAN }}</td>
-                                    <td>@{{ tahsilat.KARSIHESAPKOD }}</td>
-                                    <td>@{{ tahsilat.CRKKRS_UNVAN }}</td>
+
                                     <td v-text="format(tahsilat.EVRAKTUTAR)"></td>
                                     <td>@{{ tahsilat.EVRAKDOVIZCINS }}</td>
                                     <td v-text="format(tahsilat.EVRAKDOVIZKUR)">@{{ tahsilat.EVRAKDOVIZKUR }}</td>
