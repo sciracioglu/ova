@@ -12,6 +12,7 @@ class TahsilatController extends Controller
         $data = [];
         $data['yillar'] = Tahsilat::where('HESAPKOD', [session('musteri.hesapkod')])
                             ->groupBy('_EVRAKYIL')
+                            ->orderBy('_EVRAKYIL', 'desc')
                             ->get(DB::raw('_EVRAKYIL as yil, sum(EVRAKTUTAR) as evrak_tutar, sum(TUTAR) as tutar'));
 
         $data['aylar'] = Tahsilat::where('HESAPKOD', [session('musteri.hesapkod')])
