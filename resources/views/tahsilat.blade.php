@@ -61,7 +61,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <tr  v-for='tahsilat in tahsilatlar' v-if='tahsilat._EVRAKYIL == yil.yil && tahsilat._EVRAKAY == ay.ay'>
+                                       <tr  v-for='tahsilat in tahsilatlar' v-if='tahsilat._EVRAKYIL == ay.yil && tahsilat._EVRAKAY == ay.ay'>
                                              <td>@{{ tahsilat.EVRAKTIP }}</td>
                                              <td>@{{ tahsilat.EVRAKTARIH }}</td>
                                              <td v-text="format(tahsilat.EVRAKTUTAR)"></td>
