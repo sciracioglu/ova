@@ -61,7 +61,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       <tr  v-for='tahsilat in tahsilatlar' v-if='tahsilat._EVRAKYIL == ay.yil && tahsilat._EVRAKAY == ay.ay'>
+                                       <tr  v-for='tahsilat in tahsilatlar' v-if='tahsilat._EVRAKYIL == ay.yil && tahsilat._EVRAKAY == ay.tam_ay'>
                                              <td>@{{ tahsilat.EVRAKTIP }}</td>
                                              <td>@{{ tahsilat.EVRAKTARIH }}</td>
                                              <td v-text="format(tahsilat.EVRAKTUTAR)"></td>
@@ -85,8 +85,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
 @endsection
 
 @section('scripts')
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
 <script>
 var vue = new Vue({
