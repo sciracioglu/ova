@@ -18,70 +18,66 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99a1dbff', e
 <div id='app'>
    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
       <div class="panel panel-default" v-for='yil in yillar'>
-        <div class="panel-heading temel" role="tab" id="headingOne">
-          <h4 class="panel-title">
-            <a role="button" data-toggle="collapse" :href="'#a'+yil.yil" aria-expanded="true" aria-controls="collapseOne">
-               <div class="row">
-                  <div class="col-md-8"> @{{ yil.yil }}</div>
-                  <div class="col-md-4" style="text-align:right;">
-                     <span v-text='format(yil.tutar,"Tutar : ")'></span>
+         <div class="panel-heading temel" role="tab" id="headingOne">
+               <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" :href="'#a'+yil.yil" aria-expanded="true" aria-controls="collapseOne">
+                     <div class="row">
+                        <div class="col-md-8"> @{{ yil.yil }}</div>
+                        <div class="col-md-4" style="text-align:right;">
+                           <span v-text='format(yil.tutar,"Tutar : ")'></span>
+                        </div>
+                     </div>
+                  </a>
+               </h4>
+         </div>
+         <div :id="'a'+yil.yil" class="panel-collapse collapse" role="tabpanel">
+               <div class="panel-body">
+                  <div class="panel-group" :id="'ay'+yil.yil" role="tablist" aria-multiselectable="true">
+                     <div class="panel panel-default" v-for='ay in aylar'  v-if='ay.yil == yil.yil'>
+                        <div class="panel-heading temel" role="tab" id="headingOne">
+                              <h4 class="panel-title">
+                                 <a role="button" data-toggle="collapse" :data-parent="'#ay'+yil.yil" :href="'#b'+yil.yil+ay.ay" aria-expanded="true" aria-controls="collapseOne">
+                                    <div class="row">
+                                          <div class="col-md-8">  @{{ ay.tam_ay }}</div>
+                                          <div class="col-md-4" style="text-align:right;">
+                                                <span v-text='format(ay.tutar,"Tutar : ")'></span>
+                                          </div>
+                                    </div>
+                                 </a>
+                              </h4>
+                        </div>
+                        <div :id="'b'+yil.yil+ay.ay" class="panel-collapse collapse" role="tabpanel">
+                           <div class="panel-body">
+                              <table class="table table-condenced table-hover">
+                                    <thead>
+                                       <tr>
+                                             <th>Evrak Tipi</th>
+                                             <th>Evrak Tarihi</th>
+
+                                             <th>Evrak Tutar</th>
+                                             <th>Evrak Döviz Cinsi</th>
+                                             <th>Evrak Döviz Kuru</th>
+                                             <th>Tutar</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr  v-for='tahsilat in tahsilatlar' v-if='tahsilat._EVRAKYIL == yil.yil && tahsilat._EVRAKAY == ay.ay'>
+                                             <td>@{{ tahsilat.EVRAKTIP }}</td>
+                                             <td>@{{ tahsilat.EVRAKTARIH }}</td>
+                                             <td v-text="format(tahsilat.EVRAKTUTAR)"></td>
+                                             <td>@{{ tahsilat.EVRAKDOVIZCINS }}</td>
+                                             <td v-text="format(tahsilat.EVRAKDOVIZKUR)">@{{ tahsilat.EVRAKDOVIZKUR }}</td>
+                                             <td v-text="format(tahsilat.TUTAR)"  style="text-align: right;">@{{ tahsilat.TUTAR }}</td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
-            </a>
-          </h4>
-        </div>
-        <div :id="'a'+yil.yil" class="panel-collapse collapse" role="tabpanel">
-          <div class="panel-body">
-            <div class="panel-group" :id="'ay'+yil.yil" role="tablist" aria-multiselectable="true">
-               <div class="panel panel-default" v-for='ay in aylar'  v-if='ay.yil == yil.yil'>
-                 <div class="panel-heading temel" role="tab" id="headingOne">
-                   <h4 class="panel-title">
-                     <a role="button" data-toggle="collapse" :data-parent="'#ay'+yil.yil" :href="'#b'+yil.yil+ay.ay" aria-expanded="true" aria-controls="collapseOne">
-                           <div class="row">
-                                 <div class="col-md-8">  @{{ ay.tam_ay }}</div>
-
-                                 <div class="col-md-4" style="text-align:right;">
-                                       <span v-text='format(ay.tutar,"Tutar : ")'></span>
-                                 </div>
-                              </div>
-                     </a>
-                   </h4>
-                 </div>
-                 <div :id="'b'+yil.yil+ay.ay" class="panel-collapse collapse" role="tabpanel">
-                   <div class="panel-body">
-                      <table class="table table-condenced table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Evrak Tipi</th>
-                                    <th>Evrak Tarihi</th>
-
-                                    <th>Evrak Tutar</th>
-                                    <th>Evrak Döviz Cinsi</th>
-                                    <th>Evrak Döviz Kuru</th>
-                                    <th>Tutar</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr  v-for='tahsilat in tahsilatlar'>
-                                    <td>@{{ tahsilat.EVRAKTIP }}</td>
-                                    <td>@{{ tahsilat.EVRAKTARIH }}</td>
-
-                                    <td v-text="format(tahsilat.EVRAKTUTAR)"></td>
-                                    <td>@{{ tahsilat.EVRAKDOVIZCINS }}</td>
-                                    <td v-text="format(tahsilat.EVRAKDOVIZKUR)">@{{ tahsilat.EVRAKDOVIZKUR }}</td>
-                                    <td v-text="format(tahsilat.TUTAR)">@{{ tahsilat.TUTAR }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                   </div>
-                 </div>
-               </div>
-
-            </div>
-          </div>
-        </div>
+         </div>
       </div>
-
    </div>
 </div>
 
